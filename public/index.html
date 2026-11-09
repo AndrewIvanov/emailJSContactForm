@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f6f0" />
+    <meta name="description" content="Есть вопрос или идея? Оставьте сообщение через форму обратной связи." />
+    <title>На связи — форма обратной связи</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./vendor/emailjs.min.js" defer></script>
+    <script src="./app.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contact-form">Перейти к форме</a>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="На связи — главная">
+          <svg class="brand-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M8 7h24a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H20L10 37v-6H8a5 5 0 0 1-5-5V12a5 5 0 0 1 5-5Z" fill="currentColor" />
+            <path d="M12 17h16M12 23h10" stroke="#E2F1AD" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+          на связи<span class="brand-dot">.</span>
+        </a>
+        <span class="header-note"><span class="status-dot"></span>Начнём с сообщения</span>
+      </header>
+
+      <main class="contact-layout">
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow"><span></span>МАЛЕНЬКОЕ СООБЩЕНИЕ. БОЛЬШОЕ НАЧАЛО.</p>
+          <h1 id="page-title">Всё начинается<br />с <em>диалога.</em></h1>
+          <p class="intro-description">Есть вопрос, идея или предложение?<br class="desktop-break" /> Оставьте пару строк — будем на связи.</p>
+
+          <div class="letter-art" aria-hidden="true">
+            <svg viewBox="0 0 380 250" fill="none">
+              <ellipse cx="190" cy="133" rx="133" ry="105" fill="#E9EDDF" />
+              <path d="M34 183c-19-41 7-84 40-70 34 14-18 68-37 30-14-29 17-59 42-73" stroke="#9AA98C" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 7" />
+              <path d="m284 53 33-17-10 34-8-13-15-4Z" fill="#6D8B59" />
+              <path d="m299 57 18-21" stroke="#F5F6F0" stroke-width="1.5" />
+              <g transform="rotate(-9 192 140)">
+                <rect x="99" y="84" width="187" height="126" rx="9" fill="#C6D7B6" />
+                <path d="m100 92 86 64a10 10 0 0 0 12 0l87-64" stroke="#9EB58B" stroke-width="1.5" />
+                <rect x="119" y="58" width="145" height="117" rx="7" fill="#FCFCF8" stroke="#DCE1D3" />
+                <path d="M140 83h58M140 96h102M140 109h83" stroke="#D2DCC7" stroke-width="4" stroke-linecap="round" />
+                <path d="M215 129c-7-11-22-1-13 9l13 12 13-12c9-10-6-20-13-9Z" fill="#6D8B59" />
+                <path d="m100 94 86 63a10 10 0 0 0 12 0l87-63v107a9 9 0 0 1-9 9H108a9 9 0 0 1-9-9V94Z" fill="#C6D7B6" />
+                <path d="m102 205 65-59M282 205l-65-59" stroke="#AAC19A" stroke-width="1.5" />
+                <path d="m100 94 86 63a10 10 0 0 0 12 0l87-63" stroke="#ABC09B" stroke-width="1.5" />
+              </g>
+              <path d="M78 51v16M70 59h16M305 178v20M295 188h20" stroke="#759063" stroke-width="2" stroke-linecap="round" />
+              <circle cx="106" cy="222" r="3" fill="#9EB58B" />
+              <circle cx="290" cy="102" r="3" fill="#9EB58B" />
+            </svg>
+            <span class="art-caption">Для важных мыслей и простых «привет»</span>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="form-title">
+          <div class="card-heading">
+            <div>
+              <h2 id="form-title">Напишите нам</h2>
+              <p>Мы будем рады вашему сообщению.</p>
+            </div>
+            <span class="card-symbol" aria-hidden="true">↗</span>
+          </div>
+
+          <form id="contact-form" method="post" novalidate>
+            <p class="required-note">Все поля обязательны</p>
+            <div class="fields-row">
+              <div class="field">
+                <label for="user-name">Ваше имя</label>
+                <input id="user-name" name="user_name" type="text" placeholder="Как к вам обращаться?" autocomplete="name" maxlength="100" required aria-describedby="name-error" />
+                <p class="field-error" id="name-error"></p>
+              </div>
+              <div class="field">
+                <label for="user-email">Электронная почта</label>
+                <input id="user-email" name="user_email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required aria-describedby="email-error" />
+                <p class="field-error" id="email-error"></p>
+              </div>
+            </div>
+
+            <div class="field message-field">
+              <div class="label-row">
+                <label for="message">Сообщение</label>
+                <span class="character-count" id="character-count" aria-hidden="true">0 / 3000</span>
+              </div>
+              <textarea id="message" name="message" rows="6" placeholder="Расскажите, что у вас на уме…" maxlength="3000" required aria-describedby="message-error message-hint"></textarea>
+              <p id="message-hint" class="sr-only">Максимум 3000 символов.</p>
+              <p class="field-error" id="message-error"></p>
+            </div>
+
+            <div class="honeypot" aria-hidden="true" inert>
+              <label for="website">Оставьте это поле пустым</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+
+            <button class="submit-button" id="submit-button" type="submit" disabled>
+              <span id="submit-label">Отправить сообщение</span>
+              <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="privacy-note">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4.5" y="8.5" width="11" height="8" rx="2" stroke="currentColor" stroke-width="1.4" /><path d="M7 8.5V6a3 3 0 0 1 6 0v2.5" stroke="currentColor" stroke-width="1.4" /></svg>
+              <span>Данные передаются через EmailJS для доставки письма. <button class="text-button" id="privacy-button" type="button">Подробнее</button></span>
+            </p>
+          </form>
+
+          <noscript><p class="noscript-notice">Для отправки сообщения включите JavaScript в браузере.</p></noscript>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Хорошо, что вы здесь.</span>
+        <span>Меньше расстояний. Больше общения.<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 10 3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+      </footer>
+    </div>
+
+    <dialog id="privacy-dialog" aria-labelledby="privacy-title">
+      <div class="dialog-content">
+        <div class="dialog-heading">
+          <h2 id="privacy-title">Что происходит с сообщением</h2>
+          <button class="close-button" id="close-privacy" type="button" aria-label="Закрыть">×</button>
+        </div>
+        <p>При отправке имя, электронная почта и текст сообщения передаются сервису EmailJS. Он подставляет их в шаблон письма и отправляет владельцу этой формы через подключённую почту.</p>
+        <p>Данные могут сохраняться в истории отправок EmailJS и в почтовом ящике получателя. Эта страница не сохраняет текст сообщения в браузере.</p>
+        <p>Не указывайте пароли, платёжные данные и другую конфиденциальную информацию.</p>
+        <a class="external-link" href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Политика конфиденциальности EmailJS ↗</a>
+      </div>
+    </dialog>
+  </body>
+</html>

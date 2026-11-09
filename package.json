@@ -1,0 +1,14 @@
+{
+  "name": "emailjs-contact-form",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Форма обратной связи через EmailJS для Firebase Hosting",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "dev": "node scripts/serve.mjs",
+    "check": "node --check public/app.js && node --check public/config.js && node --check scripts/serve.mjs",
+    "deploy": "firebase deploy --only hosting"
+  },
+  "engines": { "node": ">=20" }
+}

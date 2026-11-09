@@ -1,0 +1,12 @@
+Docker static site verification
+Date: 2026-11-09
+URL: http://localhost:18080/
+
+PASS index.html: HTTP 200, correct MIME type, no-store, exact file contents
+PASS styles.css: HTTP 200, correct MIME type, no-store, exact file contents
+PASS app.js: HTTP 200, correct MIME type, no-store, exact file contents
+PASS config.js: HTTP 200, correct MIME type, no-store, exact file contents
+PASS favicon.svg: HTTP 200, correct MIME type, no-store, exact file contents
+PASS vendor/emailjs.min.js: HTTP 200, correct MIME type, no-store, exact file contents
+PASS missing page: HTTP 404
+PASS bind mount: updated file served after 108 ms without container restart or image rebuild

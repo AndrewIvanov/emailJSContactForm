@@ -1,0 +1,6 @@
+NAME                       IMAGE                    COMMAND                  SERVICE   CREATED         STATUS         PORTS
+emailjscontactform-web-1   na-svyazi-static:local   "/docker-entrypoint.…"   web       7 minutes ago   Up 7 minutes   0.0.0.0:18080->80/tcp, [::]:18080->80/tcp
+Docker Compose version v2.40.3-desktop.1
+nginx version: nginx/1.31.8
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
